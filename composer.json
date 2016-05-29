@@ -1,6 +1,6 @@
 {
-    "name": "eddieaboujaoude/initial",
-    "license": "proprietary",
+    "name": "eddiejaoude/symfony-initializer",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {

@@ -19,4 +19,7 @@ Quickstart to Symfony project creator. Click on the options you require.
 
 ## Installation
 
-1. Clone the project 
+1. Clone the project
+2. Install dependencies `composer install`
+3. Run server `php bin/console server:run`
+4. Visit http://localhost:8000/

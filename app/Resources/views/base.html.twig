@@ -1,13 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <title>{% block title %}PHP Initializer{% endblock %}</title>
+
+    <link href="{{ asset('bundles/app/css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">PHP Initializer</h1>
+            <p>Create your project quickly & easy with a few clicks</p>
+        </div>
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+        <strong>Warning!</strong> This is just a Proof of Concept (POC).
+    </div>
+
+    <div class="container">
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+    </div>
+
+    <script src="{{ asset('bundles/app/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</body>
 </html>

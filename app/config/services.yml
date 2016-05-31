@@ -1,9 +1,28 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
+  tmp_path: "/../var/tmp"
+  packages:
+      prod:
+        - { "JMS Serializer Bundle": "jms/serializer-bundle" }
+        - { "FOS User Bundle": "friendsofsymfony/user-bundle" }
+        - { "FOS Rest Bundle": "friendsofsymfony/rest-bundle" }
+      dev:
+        - { "PHP Unit": "phpunit/phpunit" }
+        - { "PHP Spec": "phpspec/phpspec" }
+        - { "Behat": "behat/behat" }
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.form.project_form:
+        class: AppBundle\Form\ProjectForm
+        arguments: ["%packages%"]
+        tags:
+          - { name: form.type }
+
+    app.service.project_service:
+        class: AppBundle\Service\ProjectService
+        arguments: ["@filesystem", "%tmp_path%"]
+
+    app.service.package_service:
+        class: AppBundle\Service\PackageService
+        arguments: ["@app.service.project_service", "@filesystem"]
